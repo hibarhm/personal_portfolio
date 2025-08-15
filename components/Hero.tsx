@@ -1,10 +1,40 @@
-import { FaLocationArrow } from "react-icons/fa6";
+'use client';
 
+import { FaLocationArrow, FaArrowDown } from "react-icons/fa6";
+import { motion } from 'framer-motion';
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
+  // Smooth scroll to #about section
+  const handleScroll = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Animation variants for the arrow button
+  const arrowVariants = {
+    initial: { y: 0 },
+    animate: {
+      y: [0, 10, 0],
+      transition: {
+        repeat: Infinity,
+        duration: 1.5,
+        ease: 'easeInOut',
+      },
+    },
+    hover: {
+      scale: 1.2,
+      rotate: 360,
+      boxShadow: '0 0 15px rgba(59, 130, 246, 0.7)', // Blue neon glow
+      transition: { duration: 0.3 },
+    },
+    tap: { scale: 0.9 },
+  };
+
   return (
     <div className="pb-20 pt-36">
       {/**
@@ -34,7 +64,6 @@ const Hero = () => {
       >
         {/* Radial gradient for the container to give a faded look */}
         <div
-          // chnage the bg to bg-black-100, so it matches the bg color and will blend in
           className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
          bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
@@ -42,9 +71,7 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
-          </p>
+          
 
           {/**
            *  Link: https://ui.aceternity.com/components/text-generate-effect
@@ -57,16 +84,36 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Adrian, a Next.js Developer based in Croatia.
+            Hi! I&apos;m Hiba, a Software Engineering Undergraduate.
           </p>
 
-          <a href="#about">
+          <a href="mailto:hibaraheem10@gmail.com">
             <MagicButton
-              title="Show my work"
+              title="HIRE ME"
               icon={<FaLocationArrow />}
               position="right"
             />
           </a>
+
+          {/* Downward Arrow Button */}
+          <motion.button
+            onClick={handleScroll}
+            variants={arrowVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+            whileTap="tap"
+            className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white
+              shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50
+              flex items-center justify-center relative overflow-hidden
+              transition-all duration-300 ease-in-out
+              group"
+            aria-label="Scroll to about section"
+          >
+            <FaArrowDown className="text-xl group-hover:scale-110 transition-transform" />
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </motion.button>
         </div>
       </div>
     </div>
