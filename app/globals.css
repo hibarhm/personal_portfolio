@@ -4,82 +4,166 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --background: #FADCD5;
+    /* Soft blush pink */
+    --foreground: #1B0C1A;
+    /* Almost black plum */
+    --card: #765D67;
+    /* Muted mauve */
+    --card-foreground: #FADCD5;
+    /* Soft blush pink */
+    --popover: #6D3C52;
+    /* Deep rosewood */
+    --popover-foreground: #FADCD5;
+    /* Soft blush pink */
+    --primary: #4B2138;
+    /* Dark mulberry */
+    --primary-foreground: #FADCD5;
+    /* Soft blush pink */
+    --secondary: #2D222F;
+    /* Charcoal violet */
+    --secondary-foreground: #FADCD5;
+    /* Soft blush pink */
+    --muted: #765D67;
+    /* Muted mauve */
+    --muted-foreground: #FADCD5;
+    /* Soft blush pink */
+    --accent: #6D3C52;
+    /* Deep rosewood */
+    --accent-foreground: #FADCD5;
+    /* Soft blush pink */
+    --destructive: #4B2138;
+    /* Dark mulberry */
+    --destructive-foreground: #FADCD5;
+    /* Soft blush pink */
+    --border: #2D222F;
+    /* Charcoal violet */
+    --input: #765D67;
+    /* Muted mauve */
+    --ring: #6D3C52;
+    /* Deep rosewood */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --background: #1B0C1A;
+    /* Almost black plum */
+    --foreground: #FADCD5;
+    /* Soft blush pink */
+    --card: #2D222F;
+    /* Charcoal violet */
+    --card-foreground: #FADCD5;
+    /* Soft blush pink */
+    --popover: #4B2138;
+    /* Dark mulberry */
+    --popover-foreground: #FADCD5;
+    /* Soft blush pink */
+    --primary: #765D67;
+    /* Muted mauve */
+    --primary-foreground: #FADCD5;
+    /* Soft blush pink */
+    --secondary: #6D3C52;
+    /* Deep rosewood */
+    --secondary-foreground: #FADCD5;
+    /* Soft blush pink */
+    --muted: #2D222F;
+    /* Charcoal violet */
+    --muted-foreground: #FADCD5;
+    /* Soft blush pink */
+    --accent: #765D67;
+    /* Muted mauve */
+    --accent-foreground: #FADCD5;
+    /* Soft blush pink */
+    --destructive: #4B2138;
+    /* Dark mulberry */
+    --destructive-foreground: #FADCD5;
+    /* Soft blush pink */
+    --border: #6D3C52;
+    /* Deep rosewood */
+    --input: #2D222F;
+    /* Charcoal violet */
+    --ring: #765D67;
+    /* Muted mauve */
   }
 }
 
 @layer base {
   * {
-    @apply border-border !scroll-smooth;
+    border-color: var(--border) !important;
+    scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background-image: none !important;
+    /* Remove external background image for full palette effect */
   }
-  button {
-    @apply active:outline-none;
+
+  button, input, textarea, select {
+    background-color: var(--card) !important;
+    color: var(--card-foreground) !important;
+    border-color: var(--border) !important;
+    outline: none;
+  }
+
+  #tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  canvas.tsparticles-canvas-el {
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 
 @layer utilities {
   .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
+    font-weight: bold;
+    font-size: 2.25rem;
+    text-align: center;
+    color: var(--foreground) !important;
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
 }

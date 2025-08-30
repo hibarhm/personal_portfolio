@@ -32,12 +32,10 @@ const RecentProjects = () => {
   };
 
   return (
-    <div className="py-20 bg-gray-900" id="projects">
+    <div className="py-20" id="projects">
       <h1 className="heading text-white text-center">
-        A curated selection of{" "}
-        <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-          my recent projects
-        </span>
+          Recent Projects
+       
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item, index) => (
@@ -60,11 +58,9 @@ const RecentProjects = () => {
               className="relative group cursor-pointer"
             >
               <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
-                <div
-                  className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-gradient-to-b from-gray-800 to-black"
-                  style={{ backgroundColor: "#13162D" }}
-                >
-                  <img src="/bg.png" alt="background" className="opacity-50" />
+                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl">
+                  {/* Removed background gradient and color */}
+                  {/* Removed <img src="/bg.png" ... /> */}
                 </div>
                 <img
                   src={item.img}
