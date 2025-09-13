@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -27,7 +26,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
   return (
     <>
       <motion.div
-        className="fixed inset-0 bg-background/70 backdrop-blur-sm z-50 min-h-screen"
+        className="fixed inset-0 bg-black/90 z-50 min-h-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -39,8 +38,8 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
       >
-        <div className="bg-card rounded-lg max-w-4xl w-full max-h-[70vh] overflow-y-auto p-6">
-          <button onClick={onClose} className="absolute top-4 right-4 text-foreground">
+        <div className="bg-neutral-900 rounded-lg max-w-4xl w-full max-h-[70vh] overflow-y-auto p-6 text-white relative">
+          <button onClick={onClose} className="absolute top-4 right-4 text-white">
             <FaTimes />
           </button>
           <img
@@ -48,12 +47,12 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             alt={project.title}
             className="w-full h-48 sm:h-64 lg:h-96 object-cover rounded-lg mb-4"
           />
-          <h2 className="text-2xl font-bold text-foreground">{project.title}</h2>
-          <p className="text-secondary mt-2">{project.detailedDescription}</p>
-          <p className="text-secondary mt-2">Year: {project.year}</p>
+          <h2 className="text-2xl font-bold text-white">{project.title}</h2>
+          <p className="text-gray-300 mt-2">{project.detailedDescription}</p>
+          <p className="text-gray-400 mt-2">Year: {project.year}</p>
           <div className="mt-4">
-            <h3 className="text-lg font-semibold text-foreground">Features:</h3>
-            <ul className="list-disc list-inside text-secondary">
+            <h3 className="text-lg font-semibold text-white">Features:</h3>
+            <ul className="list-disc list-inside text-gray-300">
               {project.features.map((feature, i) => (
                 <li key={i}>{feature}</li>
               ))}
@@ -61,8 +60,8 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           </div>
           {project.myRole && project.myRole.length > 0 && (
             <div className="mt-4">
-              <h3 className="text-lg font-semibold text-foreground">My Role:</h3>
-              <ul className="list-disc list-inside text-secondary">
+              <h3 className="text-lg font-semibold text-white">My Role:</h3>
+              <ul className="list-disc list-inside text-gray-300">
                 {project.myRole.map((role, i) => (
                   <li key={i}>{role}</li>
                 ))}
@@ -76,7 +75,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           </div>
           <a
             href={project.link}
-            className="mt-4 inline-block text-primary hover:text-accent"
+            className="mt-4 inline-block text-blue-400 hover:text-blue-300"
             target="_blank"
             rel="noopener noreferrer"
           >

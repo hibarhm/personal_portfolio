@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from "react";
-import { FaLocationArrow } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { projects, Project } from "@/data";
 import { PinContainer } from "./ui/Pin";
@@ -92,16 +91,6 @@ const RecentProjects = () => {
                       <img src={icon} alt={`tech-icon-${index}`} className="p-2" />
                     </motion.div>
                   ))}
-                </div>
-
-                <div className="flex justify-center items-center group/link">
-                  <p className="lg:text-xl md:text-xs text-sm bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text group-hover/link:underline">
-                    Check Live Site
-                  </p>
-                  <FaLocationArrow
-                    className="ms-3 transform group-hover/link:translate-x-2 transition-transform"
-                    color="#CBACF9"
-                  />
                 </div>
               </div>
             </PinContainer>

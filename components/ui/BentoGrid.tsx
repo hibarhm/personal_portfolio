@@ -170,7 +170,7 @@ export const BentoGridItem = ({
             <div className="space-y-6 mt-6" ref={stackRef}>
               {stack.map((group, idx) => (
                 <div key={group.category} className={stackVisible ? "animate-fade-in-up" : "opacity-0"}>
-                  <h3 className="text-lg font-bold mb-2 text-poppins text-blue-400">{group.category}</h3>
+                  <h3 className={stackVisible ? "text-lg font-bold mb-2 text-poppins" : "text-lg font-bold mb-2 text-poppins opacity-0"} style={{ color: 'var(--foreground)' }}>{group.category}</h3>
                   <ul className="flex flex-wrap gap-3">
                     {group.items.map((item, i) => (
                       <li

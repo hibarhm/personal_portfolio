@@ -14,6 +14,7 @@ export type Project = {
 
 export const navItems = [
   { name: "About", link: "#about" },
+  { name: "Education", link: "#education" },
   { name: "Projects", link: "#projects" },
   { name: "Contact", link: "#contact" },
 ];
@@ -37,8 +38,8 @@ title: [
 description: "Hi, This is Hiba !!",
 className: "lg:col-span-2 md:col-span-4 md:row-span-2 lg:min-h-[30vh]",
 imgClassName: "w-full h-full",
-titleClassName: "justify-end text-xs lg:text-sm font-normal",
-descriptionClassName: "text-[30px] text-poppins",
+titleClassName: "justify-end text-xs lg:text-sm font-normal text-white-200",
+descriptionClassName: "text-[30px] text-poppins text-[color:var(--foreground)]",
 img: "",
 spareImg: "",
   },
@@ -88,6 +89,7 @@ spareImg: "",
         ],
       },
     ],
+    categoryClassName: "text-[color:var(--foreground)] !text-[color:var(--foreground)]",
     img: "",
     spareImg: "",
   },

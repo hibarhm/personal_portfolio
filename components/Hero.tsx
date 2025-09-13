@@ -6,6 +6,7 @@ import { useRef, useCallback } from 'react';
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import Education from './Education'; // Import the Education component
 
 const Hero = () => {
   const aboutSectionRef = useRef<HTMLElement>(null);
@@ -38,7 +39,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-2 pt-20">
       
       {/**
        *  UI: grid
@@ -63,45 +64,71 @@ const Hero = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
           <br></br><br></br>
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-           <small> Hello! I&apos;m </small> <br></br> <strong> Hiba Raheem </strong><br></br> <small> a Software Engineering Undergraduate </small>
-          </p>
+          <TextGenerateEffect
+            words={"Hello! I'm Hiba Raheem, a Software Engineering Undergraduate"}
+            className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl"
+          />
 
-          <a href="mailto:hibaraheem10@gmail.com">
-            <MagicButton
-              title="HIRE ME"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
-
-          {/* Downward Arrow Button */}
-          <motion.button
-            onClick={handleScroll}
-            variants={arrowVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-            whileTap="tap"
-            className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white
-              shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50
-              flex items-center justify-center relative overflow-hidden
-              transition-all duration-300 ease-in-out
-              group"
-            aria-label="Scroll to about section"
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 mt-2"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <FaArrowDown className="text-xl group-hover:scale-110 transition-transform" />
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </motion.button>
+            <a href="mailto:hibaraheem10@gmail.com">
+              <MagicButton
+                title="HIRE ME"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+            </a>
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" download>
+              <MagicButton
+                title="DOWNLOAD CV"
+                icon={<FaArrowDown />}
+                position="right"
+              />
+            </a>
+          </motion.div>
+
+          {/* Downward Arrow Button with entrance animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            <motion.button
+              onClick={() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              variants={arrowVariants}
+              initial="initial"
+              animate="animate"
+              whileHover="hover"
+              whileTap="tap"
+              className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white
+                shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50
+                flex items-center justify-center relative overflow-hidden
+                transition-all duration-300 ease-in-out
+                group"
+              aria-label="Scroll to about section"
+            >
+              <FaArrowDown className="text-xl group-hover:scale-110 transition-transform" />
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </motion.button>
+          </motion.div>
         </div>
       </div>
 
-      {/* Hidden target for scrolling - now using ref instead of document.getElementById */}
+      {/* Target for scrolling - visible but unobtrusive */}
       <section 
         id="about" 
         ref={aboutSectionRef}
-        className="hidden" // or style it appropriately for your layout
+        className="w-full h-10" // minimal height, not hidden
       />
     </div>
   );
