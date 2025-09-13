@@ -1,13 +1,21 @@
 "use client";
 
 import { navItems } from "@/data";
-
 import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import GalaxyBackground from "@/components/GalaxyBackground";
+
+// Dynamically import components that might still have issues
+import dynamic from 'next/dynamic';
+const GalaxyBackground = dynamic(() => import("@/components/GalaxyBackground"), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 bg-black" />
+});
+const Grid = dynamic(() => import("@/components/Grid"), {
+  ssr: false,
+  loading: () => <div />
+});
 
 const Home = () => {
   return (

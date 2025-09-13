@@ -2,18 +2,20 @@
 
 import { FaLocationArrow, FaArrowDown } from "react-icons/fa6";
 import { motion } from 'framer-motion';
+import { useRef, useCallback } from 'react';
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
-  // Smooth scroll to #about section
-  const handleScroll = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+  const aboutSectionRef = useRef<HTMLElement>(null);
+
+  // Smooth scroll to #about section - now safe for SSR
+  const handleScroll = useCallback(() => {
+    if (aboutSectionRef.current) {
+      aboutSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   // Animation variants for the arrow button
   const arrowVariants = {
@@ -56,20 +58,13 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          
-
-          {/**
-           *  Link: https://ui.aceternity.com/components/text-generate-effect
-           *
-           *  change md:text-6xl, add more responsive code
-           */}
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Building Interfaces That Speak Human"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
-
+          <br></br><br></br>
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Hiba, a Software Engineering Undergraduate.
+           <small> Hello! I&apos;m </small> <br></br> <strong> Hiba Raheem </strong><br></br> <small> a Software Engineering Undergraduate </small>
           </p>
 
           <a href="mailto:hibaraheem10@gmail.com">
@@ -101,6 +96,13 @@ const Hero = () => {
           </motion.button>
         </div>
       </div>
+
+      {/* Hidden target for scrolling - now using ref instead of document.getElementById */}
+      <section 
+        id="about" 
+        ref={aboutSectionRef}
+        className="hidden" // or style it appropriately for your layout
+      />
     </div>
   );
 };

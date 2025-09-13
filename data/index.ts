@@ -91,16 +91,7 @@ spareImg: "",
     img: "",
     spareImg: "",
   },
-  {
-    id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
-    className: "lg:col-span-5 md:col-span-6 col-span-6 min-h-[10vh]",
-    imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
-    spareImg: "",
-  },
+  
 ];
 
 export const projects: Project[] = [

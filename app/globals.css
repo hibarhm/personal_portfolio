@@ -105,7 +105,10 @@
     /* Remove external background image for full palette effect */
   }
 
-  button, input, textarea, select {
+  button,
+  input,
+  textarea,
+  select {
     background-color: var(--card) !important;
     color: var(--card-foreground) !important;
     border-color: var(--border) !important;
