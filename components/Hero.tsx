@@ -109,8 +109,8 @@ const Hero = () => {
               animate="animate"
               whileHover="hover"
               whileTap="tap"
-              className="mt-8 p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white
-                shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50
+              className="mt-8 p-4 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-full text-white
+                shadow-lg shadow-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/50
                 flex items-center justify-center relative overflow-hidden
                 transition-all duration-300 ease-in-out
                 group"
