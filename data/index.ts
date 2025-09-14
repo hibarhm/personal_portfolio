@@ -24,7 +24,7 @@ export const gridItems = [
     id: 5,
     title: " ' I believe in translating imagination into interactive reality through Design and Code ' ",
     className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60 opacity-40",
     titleClassName: "justify-center md:justify-start lg:justify-center",
     img: "/bgg1.jpeg",
     spareImg: "/grid.svg",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     ],
     img: "/project1.png",
     iconLists: ["/next.svg", "/mongo.svg", "/jwt.svg", "/elas.svg", "/git.svg"],
-    link: "https://scholarshare21-mflp-git-main-lisorthmans-projects.vercel.app.com",
+    link: "https://scholarshare21-mflp-git-main-lisorthmans-projects.vercel.app",
     github: "https://github.com/username/scholarshare",
     year: 2025,
     myRole: [
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     ],
     img: "/project2.png",
     iconLists: ["/php.svg", "/mysql.svg"],
-    link: "",
+    link: "https://github.com/hibarhm/laravel_project_ecom.git",
     github: "https://github.com/hibarhm/laravel_project_ecom.git",
     year: 2024,
   },
@@ -163,13 +163,11 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/hibarhm"
   },
   {
     id: 2,
-    img: "/twit.svg",
-  },
-  {
-    id: 3,
     img: "/link.svg",
-  },
+    link: "https://www.linkedin.com/in/hibaraheem?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+  }
 ];
